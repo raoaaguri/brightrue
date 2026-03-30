@@ -3,14 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Brighture — Engineering Human Intelligence for the AI Future</title>
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="theme-color" content="#1a56ff">
 <meta name="description" content="Brighture is a global innovation platform building AI Innovation Labs, robotics ecosystems, and future skills infrastructure for institutions and enterprises.">
+<meta name="keywords" content="AI, robotics, innovation labs, education technology, future skills">
+<meta property="og:title" content="Brighture — Engineering Human Intelligence for the AI Future">
+<meta property="og:description" content="Global innovation platform for AI Innovation Labs, robotics ecosystems, and future skills infrastructure.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="images/favIcon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="images/favIcon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Comfortaa:wght@400;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
+<title>Brighture — Engineering Human Intelligence for the AI Future</title>
 </head>
 <body>
+
+<!-- Skip to main content link -->
+<a href="#hero" class="skip-link">Skip to main content</a>
 
 <!-- NAV -->
 <nav id="navbar">
@@ -22,9 +35,10 @@
     <li><a href="#packages">Programs</a></li>
     <li><a href="#products">Products</a></li>
     <li><a href="#global">Global</a></li>
+    <li><a href="#faq">FAQ</a></li>
     <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
   </ul>
-  <div class="hamburger" id="hamburger" onclick="toggleMobileNav()">
+  <div class="hamburger" id="hamburger" onclick="toggleMobileNav()" role="button" tabindex="0" aria-label="Toggle navigation menu" aria-expanded="false" onkeypress="if(event.key==='Enter'||event.key===' ')toggleMobileNav()">
     <span></span><span></span><span></span>
   </div>
 </nav>
@@ -36,11 +50,12 @@
   <a href="#packages" onclick="toggleMobileNav()">Programs</a>
   <a href="#products" onclick="toggleMobileNav()">Products</a>
   <a href="#global" onclick="toggleMobileNav()">Global</a>
+  <a href="#faq" onclick="toggleMobileNav()">FAQ</a>
   <a href="#contact" onclick="toggleMobileNav()">Contact</a>
 </div>
 
 <!-- HERO -->
-<section id="hero">
+<section id="hero" role="main">
   <div class="hero-blob hero-blob-1"></div>
   <div class="hero-blob hero-blob-2"></div>
   <div class="hero-blob hero-blob-3"></div>
@@ -110,6 +125,11 @@
     <div class="mission-box reveal">
       <div class="mission-label">Our Mission</div>
       <p class="mission-text">To engineer innovation ecosystems that empower institutions and enterprises to develop technologies and talent for the AI-driven future.</p>
+    </div>
+    <div class="mission-box reveal">
+      <div class="mission-label">Our Vision</div>
+      <p class="mission-text">To advance human intelligence and innovation in the age of artificial intelligence.
+</p>
     </div>
   </div>
 </section>
@@ -255,14 +275,14 @@
       <p>See exactly what each program includes across labs, platforms, and learning depth.</p>
     </div>
 
-    <div class="tab-switcher">
-      <button class="tab-btn active" onclick="showTab('labs')">Innovation Labs</button>
-      <button class="tab-btn" onclick="showTab('tech')">Technology Platforms</button>
-      <button class="tab-btn" onclick="showTab('learning')">Learning Depth</button>
+    <div class="tab-switcher" role="tablist">
+      <button id="tab-labs-btn" class="tab-btn active" role="tab" onclick="showTab('labs')" aria-selected="true" aria-controls="tab-labs">Innovation Labs</button>
+      <button id="tab-tech-btn" class="tab-btn" role="tab" onclick="showTab('tech')" aria-selected="false" aria-controls="tab-tech">Technology Platforms</button>
+      <button id="tab-learning-btn" class="tab-btn" role="tab" onclick="showTab('learning')" aria-selected="false" aria-controls="tab-learning">Learning Depth</button>
     </div>
 
     <!-- Labs Tab -->
-    <div class="comp-pane active" id="tab-labs">
+    <div class="comp-pane active" id="tab-labs" role="tabpanel" aria-labelledby="tab-labs-btn">
       <div class="table-scroll">
         <table class="comp-table">
           <thead>
@@ -289,7 +309,7 @@
     </div>
 
     <!-- Tech Tab -->
-    <div class="comp-pane" id="tab-tech">
+    <div class="comp-pane" id="tab-tech" role="tabpanel" aria-labelledby="tab-tech-btn">
       <div class="table-scroll">
         <table class="comp-table">
           <thead>
@@ -315,7 +335,7 @@
     </div>
 
     <!-- Learning Tab -->
-    <div class="comp-pane" id="tab-learning">
+    <div class="comp-pane" id="tab-learning" role="tabpanel" aria-labelledby="tab-learning-btn">
       <div class="table-scroll">
         <table class="comp-table">
           <thead>
@@ -441,22 +461,22 @@
       <div id="formArea">
         <div class="form-title">Send Us a Message</div>
         <div class="form-row">
-          <div class="form-group"><label>Name</label><input type="text" placeholder="Your full name" id="f-name"></div>
-          <div class="form-group"><label>Organization</label><input type="text" placeholder="School / Company" id="f-org"></div>
+          <div class="form-group"><label for="f-name">Name <span aria-label="required">*</span></label><input type="text" placeholder="Your full name" id="f-name" required aria-required="true"></div>
+          <div class="form-group"><label for="f-org">Organization</label><input type="text" placeholder="School / Company" id="f-org"></div>
         </div>
         <div class="form-row">
-          <div class="form-group"><label>Email Address</label><input type="email" placeholder="your@email.com" id="f-email"></div>
-          <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="+1 234 567 890" id="f-phone"></div>
+          <div class="form-group"><label for="f-email">Email Address <span aria-label="required">*</span></label><input type="email" placeholder="your@email.com" id="f-email" required aria-required="true"></div>
+          <div class="form-group"><label for="f-phone">Phone Number</label><input type="tel" placeholder="+1 234 567 890" id="f-phone"></div>
         </div>
         <div class="form-row">
-          <div class="form-group"><label>Country</label><input type="text" placeholder="Your country" id="f-country"></div>
-          <div class="form-group"><label>Area of Interest</label>
+          <div class="form-group"><label for="f-country">Country</label><input type="text" placeholder="Your country" id="f-country"></div>
+          <div class="form-group"><label for="f-interest">Area of Interest</label>
             <select id="f-interest"><option value="">Select an area</option><option>AI Innovation Lab</option><option>Robotics Ecosystem</option><option>Future Skills Platform</option><option>AI Forklift Safety Systems</option><option>Physical AI Platform</option><option>Partnership / Investment</option><option>Other</option></select>
           </div>
         </div>
-        <div class="form-group"><label>Message</label><textarea placeholder="Tell us about your innovation goals..." id="f-message"></textarea></div>
-        <div class="captcha-note"><span>🛡️</span> This form is protected by CAPTCHA to prevent spam.</div>
-        <button class="btn-primary" style="width:100%;justify-content:center;" onclick="submitForm()">Send Message →</button>
+        <div class="form-group"><label for="f-message">Message</label><textarea placeholder="Tell us about your innovation goals..." id="f-message"></textarea></div>
+        <div class="captcha-note"><span aria-hidden="true">🛡️</span> This form is protected by CAPTCHA to prevent spam.</div>
+        <button class="btn-primary" style="width:100%;justify-content:center;" onclick="submitForm()" aria-label="Submit contact form">Send Message →</button>
       </div>
       <div class="form-success" id="formSuccess">
         <div style="font-size:3rem;margin-bottom:1rem;">✅</div>
@@ -467,13 +487,199 @@
   </div>
 </section>
 
+<!-- FAQ -->
+<section id="faq">
+  <div class="faq-wrapper">
+    <div class="faq-header reveal">
+      <div class="section-label">FAQs</div>
+      <h2 class="section-title">Frequently Asked<br>Questions</h2>
+      <p class="section-desc">Find answers to common questions about Brighture programs, learning, and how we're building the future of innovation.</p>
+    </div>
+
+    <div class="faq-container">
+      <!-- Getting Started Section -->
+      <div class="faq-section reveal">
+        <div class="faq-section-title" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaqSection(this)" onkeypress="if(event.key==='Enter'||event.key===' ')toggleFaqSection(this)">
+          <span class="faq-title-text">Getting Started</span>
+          <span class="faq-expand-icon" aria-hidden="true">+</span>
+        </div>
+        <div class="faq-section-content">
+          <div class="faq-item">
+            <div class="faq-question">
+              <span class="faq-q-text">Where do I begin?</span>
+            </div>
+            <div class="faq-answer">
+              <p>Start simple. Build fast. Advance with confidence. Begin with Foundations. Move into real-world AI.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span class="faq-q-text">Who is this for?</span>
+            </div>
+            <div class="faq-answer">
+              <p>For those who don't just learn technology — but build with it. Students. Schools. Innovators. Enterprises.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Learning Section -->
+      <div class="faq-section reveal">
+        <div class="faq-section-title" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaqSection(this)" onkeypress="if(event.key==='Enter'||event.key===' ')toggleFaqSection(this)">
+          <span class="faq-title-text">Learning</span>
+          <span class="faq-expand-icon" aria-hidden="true">+</span>
+        </div>
+        <div class="faq-section-content">
+          <div class="faq-item">
+            <div class="faq-question">
+              <span class="faq-q-text">What makes Brighture different?</span>
+            </div>
+            <div class="faq-answer">
+              <p>You don't just learn AI. You build it. Every concept becomes a working system through hands-on experimentation.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span class="faq-q-text">How does learning work?</span>
+            </div>
+            <div class="faq-answer">
+              <p>Understand. Apply. Create. Every concept becomes a working system. We follow experiential learning principles where theory meets practice.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span class="faq-q-text">Are there certifications?</span>
+            </div>
+            <div class="faq-answer">
+              <p>Yes. But more importantly — you leave with proof of work. Our certifications are backed by real projects you've built.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Programs Section -->
+      <div class="faq-section reveal">
+        <div class="faq-section-title" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaqSection(this)" onkeypress="if(event.key==='Enter'||event.key===' ')toggleFaqSection(this)">
+          <span class="faq-title-text">Programs</span>
+          <span class="faq-expand-icon" aria-hidden="true">+</span>
+        </div>
+        <div class="faq-section-content">
+          <div class="faq-item">
+            <div class="faq-question">
+              <span class="faq-q-text">What can I learn?</span>
+            </div>
+            <div class="faq-answer">
+              <p>AI. Robotics. Intelligent systems. Technologies shaping what's next. Our programs cover the full spectrum of emerging technologies.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span class="faq-q-text">Is it aligned with schools?</span>
+            </div>
+            <div class="faq-answer">
+              <p>Yes. Designed to integrate. Built to go beyond. Our programs complement traditional curriculum while fostering innovation.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Experience Section -->
+      <div class="faq-section reveal">
+        <div class="faq-section-title" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaqSection(this)" onkeypress="if(event.key==='Enter'||event.key===' ')toggleFaqSection(this)">
+          <span class="faq-title-text">Experience</span>
+          <span class="faq-expand-icon" aria-hidden="true">+</span>
+        </div>
+        <div class="faq-section-content">
+          <div class="faq-item">
+            <div class="faq-question">
+              <span class="faq-q-text">Online or offline?</span>
+            </div>
+            <div class="faq-answer">
+              <p>Both. Seamlessly connected. Learn online and collaborate with physical labs, or work entirely within our hands-on lab environments.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span class="faq-q-text">Do I need hardware?</span>
+            </div>
+            <div class="faq-answer">
+              <p>Yes. Because real learning is hands-on. Our labs are equipped with the latest robotics, AI platforms, and development tools.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span class="faq-q-text">What happens after?</span>
+            </div>
+            <div class="faq-answer">
+              <p>You don't finish. You start building independently. Our alumni network and ongoing resources support your continued innovation journey.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- For Schools Section -->
+      <div class="faq-section reveal">
+        <div class="faq-section-title" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaqSection(this)" onkeypress="if(event.key==='Enter'||event.key===' ')toggleFaqSection(this)">
+          <span class="faq-title-text">For Schools</span>
+          <span class="faq-expand-icon" aria-hidden="true">+</span>
+        </div>
+        <div class="faq-section-content">
+          <div class="faq-item">
+            <div class="faq-question">
+              <span class="faq-q-text">Can institutions adopt Brighture?</span>
+            </div>
+            <div class="faq-answer">
+              <p>Yes. We build future-ready campuses. Our institutional packages support K-12, higher education, and corporate training environments.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span class="faq-q-text">Do you train educators?</span>
+            </div>
+            <div class="faq-answer">
+              <p>We don't just train. We transform teaching. Educator enablement is core to every program, ensuring teachers become innovation facilitators.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Future Section -->
+      <div class="faq-section reveal">
+        <div class="faq-section-title" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaqSection(this)" onkeypress="if(event.key==='Enter'||event.key===' ')toggleFaqSection(this)">
+          <span class="faq-title-text">Future</span>
+          <span class="faq-expand-icon" aria-hidden="true">+</span>
+        </div>
+        <div class="faq-section-content">
+          <div class="faq-item">
+            <div class="faq-question">
+              <span class="faq-q-text">How does this help careers?</span>
+            </div>
+            <div class="faq-answer">
+              <p>Skills matter. But building real systems matters more. We prepare you not just with knowledge, but with portfolio projects and industry connections.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span class="faq-q-text">Can I create real-world solutions?</span>
+            </div>
+            <div class="faq-answer">
+              <p>That's the only way we teach. Every project is designed to create real-world impact, solving actual problems using intelligent systems.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
       <a href="#hero" class="nav-logo footer-logo">brigh<span class="logo-t">t</span><span>ure</span></a>
       <p>Engineering Human Intelligence for the AI Future. Building AI Innovation Labs, robotics ecosystems, and future skills infrastructure globally.</p>
-      <div style="margin-top:1.25rem;font-size:0.75rem;color:rgba(255,255,255,0.3);">innovate@brightureglobal.com</div>
+      <div style="margin-top:1.25rem;font-size:0.75rem;color:rgba(255,255,255,0.82);">innovate@brightureglobal.com</div>
     </div>
     <div class="footer-col"><h4>Framework</h4><ul><li><a href="#about">About Brighture</a></li><li><a href="#framework">Innovation Framework</a></li><li><a href="#labs">Lab Ecosystem</a></li><li><a href="#journey">Innovation Journey</a></li></ul></div>
     <div class="footer-col"><h4>Packages</h4><ul><li><a href="#packages">AI Foundation</a></li><li><a href="#packages">AI Advanced</a></li><li><a href="#packages">Research Package</a></li><li><a href="#packages">Innovation Campus</a></li></ul></div>
